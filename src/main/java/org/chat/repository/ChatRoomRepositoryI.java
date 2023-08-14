@@ -1,15 +1,15 @@
 package org.chat.repository;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.chat.entity.Chat;
+import org.chat.entity.ChatRoom;
 
 import java.util.UUID;
 
 public interface ChatRoomRepositoryI {
 
-    void save(Chat chat);
+    void save(ChatRoom chatRoom);
 
-    Chat get(UUID id) throws JsonProcessingException;
+    ChatRoom get(UUID id) throws JsonProcessingException;
 
     void delete(UUID id);
 }

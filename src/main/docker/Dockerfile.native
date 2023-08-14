@@ -7,11 +7,11 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native -t quarkus/quarkus-chat-room .
+# docker build -f src/main/docker/Dockerfile.native -t quarkus/quarkus-chatRoom-room .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/quarkus-chat-room
+# docker run -i --rm -p 8080:8080 quarkus/quarkus-chatRoom-room
 #
 ###
 FROM registry.access.redhat.com/ubi8/ubi-minimal:8.6

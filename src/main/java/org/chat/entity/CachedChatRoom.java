@@ -4,5 +4,5 @@ import java.util.UUID;
 
 public class CachedChatRoom {
     UUID key;
-    Chat value;
+    ChatRoom value;
 }

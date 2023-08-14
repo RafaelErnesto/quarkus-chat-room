@@ -10,11 +10,11 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native-micro -t quarkus/quarkus-chat-room .
+# docker build -f src/main/docker/Dockerfile.native-micro -t quarkus/quarkus-chatRoom-room .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/quarkus-chat-room
+# docker run -i --rm -p 8080:8080 quarkus/quarkus-chatRoom-room
 #
 ###
 FROM quay.io/quarkus/quarkus-micro-image:2.0

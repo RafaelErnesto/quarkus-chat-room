@@ -1,9 +1,10 @@
 package org.chat.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.chat.dto.CreateChatRoomDto;
-import org.chat.entity.Chat;
+import org.chat.entity.ChatRoom;
 import org.chat.enums.Status;
 import org.chat.repository.ChatRoomRepositoryI;
 
@@ -16,16 +17,20 @@ public class ChatRoomService {
     ChatRoomRepositoryI chatRoomRepository;
 
     public UUID create(CreateChatRoomDto createChatRoomDto) {
-        Chat chat = chatBuilder(createChatRoomDto);
-        chatRoomRepository.save(chat);
-        return chat.id;
+        ChatRoom chatRoom = chatBuilder(createChatRoomDto);
+        chatRoomRepository.save(chatRoom);
+        return chatRoom.id;
     }
 
-    private Chat chatBuilder(CreateChatRoomDto createChatRoomDto){
+    public ChatRoom get(UUID id) throws JsonProcessingException {
+        return chatRoomRepository.get(id);
+    }
+
+    private ChatRoom chatBuilder(CreateChatRoomDto createChatRoomDto){
         if (createChatRoomDto.status == Status.PRIVATE) {
-            return new Chat(createChatRoomDto.name, createChatRoomDto.status, createChatRoomDto.password);
+            return new ChatRoom(createChatRoomDto.name, createChatRoomDto.status, createChatRoomDto.password);
         }
-        return new Chat(createChatRoomDto.name);
+        return new ChatRoom(createChatRoomDto.name);
     }
 
 }

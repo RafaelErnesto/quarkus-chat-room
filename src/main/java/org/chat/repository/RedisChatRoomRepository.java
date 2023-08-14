@@ -4,7 +4,8 @@ import io.quarkus.redis.datasource.RedisDataSource;
 import io.quarkus.redis.datasource.value.ValueCommands;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import org.chat.entity.Chat;
+import org.chat.entity.ChatRoom;
+
 import java.util.UUID;
 
 @ApplicationScoped
@@ -15,20 +16,20 @@ public class RedisChatRoomRepository implements  ChatRoomRepositoryI{
 
 
     @Override
-    public void save(Chat chat) {
-        ValueCommands<String, Chat> commands = redisDataSource.value(Chat.class);
-        commands.set(chat.id.toString(), chat);
+    public void save(ChatRoom chatRoom) {
+        ValueCommands<String, ChatRoom> commands = redisDataSource.value(ChatRoom.class);
+        commands.set(chatRoom.id.toString(), chatRoom);
     }
 
     @Override
-    public Chat get(UUID id)  {
-       ValueCommands<String, Chat> commands = redisDataSource.value(Chat.class);
+    public ChatRoom get(UUID id)  {
+       ValueCommands<String, ChatRoom> commands = redisDataSource.value(ChatRoom.class);
        return commands.get(id.toString());
     }
 
     @Override
     public void delete(UUID id) {
-        ValueCommands<String, Chat> commands = redisDataSource.value(Chat.class);
+        ValueCommands<String, ChatRoom> commands = redisDataSource.value(ChatRoom.class);
         commands.getdel(id.toString());
     }
 }
