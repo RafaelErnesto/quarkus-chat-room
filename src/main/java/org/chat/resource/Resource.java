@@ -1,6 +1,5 @@
 package org.chat.resource;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.validation.Valid;
@@ -13,27 +12,27 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.core.MediaType;
 import org.chat.dto.CreateChatRoomDto;
 import org.chat.entity.ChatRoom;
-import org.chat.service.ChatRoomService;
+import org.chat.service.Service;
 
 import java.util.UUID;
 
 @Path("/chat-room")
 @ApplicationScoped
-public class ChatRoomResource {
+public class Resource {
 
     @Inject
-    ChatRoomService chatRoomService;
+    Service service;
 
     @POST()
     @Consumes(MediaType.APPLICATION_JSON)
-    public UUID createChat(@Valid CreateChatRoomDto createChatRoomDto){
-        return chatRoomService.create(createChatRoomDto);
+    public UUID createRoom(@Valid CreateChatRoomDto createChatRoomDto){
+        return service.create(createChatRoomDto);
     }
 
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public ChatRoom createChat(@Valid @PathParam("id") UUID id) throws JsonProcessingException {
-        return chatRoomService.get(id);
+    public ChatRoom getRoom(@Valid @PathParam("id") UUID id) {
+        return service.get(id);
     }
 }

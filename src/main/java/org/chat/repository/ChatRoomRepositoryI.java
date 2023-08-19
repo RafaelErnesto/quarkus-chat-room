@@ -9,7 +9,7 @@ public interface ChatRoomRepositoryI {
 
     void save(ChatRoom chatRoom);
 
-    ChatRoom get(UUID id) throws JsonProcessingException;
+    ChatRoom get(UUID id);
 
     void delete(UUID id);
 }

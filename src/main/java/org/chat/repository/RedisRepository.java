@@ -9,7 +9,7 @@ import org.chat.entity.ChatRoom;
 import java.util.UUID;
 
 @ApplicationScoped
-public class RedisChatRoomRepository implements  ChatRoomRepositoryI{
+public class RedisRepository implements  ChatRoomRepositoryI{
 
     @Inject
     RedisDataSource redisDataSource;

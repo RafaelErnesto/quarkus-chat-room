@@ -1,11 +1,12 @@
 package org.chat.entity;
 
 import org.chat.enums.Status;
+import org.chat.valueObjects.Password;
 
 import java.util.UUID;
 
 public class ChatRoom {
-    public UUID id = UUID.randomUUID();
+    public final UUID id = UUID.randomUUID();
 
     public String name;
 
