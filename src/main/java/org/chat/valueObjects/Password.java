@@ -23,7 +23,7 @@ public class Password {
         }
     }
 
-    private static String bytesToHex(byte[] hash) {
+    private String bytesToHex(byte[] hash) {
         StringBuilder hexString = new StringBuilder(2 * hash.length);
         for (byte b : hash) {
             String hex = Integer.toHexString(0xff & b);
@@ -33,5 +33,10 @@ public class Password {
             hexString.append(hex);
         }
         return hexString.toString();
+    }
+
+    public boolean match(String valueToMatch) {
+        String hashedValueToMatch = hashPassword(valueToMatch);
+        return hashedValueToMatch.equalsIgnoreCase(this.value);
     }
 }

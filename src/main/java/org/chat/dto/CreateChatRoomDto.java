@@ -7,7 +7,15 @@ import jakarta.validation.constraints.Size;
 import org.chat.enums.Status;
 
 public class CreateChatRoomDto {
-
+    
+    public CreateChatRoomDto(String name){
+        this.name = name;
+    }
+    
+    public CreateChatRoomDto(String name, String password){
+        this.name = name;
+        this.password = password;
+    }
 
     @JsonProperty("name")
     @NotBlank(message = "name cannot be blank")

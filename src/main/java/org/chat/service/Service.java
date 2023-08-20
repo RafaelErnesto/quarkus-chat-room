@@ -2,11 +2,10 @@ package org.chat.service;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.ProcessingException;
 import org.chat.dto.CreateChatRoomDto;
 import org.chat.entity.ChatRoom;
-import org.chat.enums.Status;
-import org.chat.repository.ChatRoomRepositoryI;
+import org.chat.exception.RoomNotFoundException;
+import org.chat.repository.MongoRepository;
 
 import java.util.UUID;
 
@@ -14,7 +13,7 @@ import java.util.UUID;
 public class Service {
 
     @Inject
-    ChatRoomRepositoryI dynamoDbRepository;
+    MongoRepository dynamoDbRepository;
 
     public UUID create(CreateChatRoomDto createChatRoomDto) {
         ChatRoom chatRoom = chatBuilder(createChatRoomDto);
@@ -22,15 +21,19 @@ public class Service {
         return chatRoom.id;
     }
 
-    public ChatRoom get(UUID id) throws ProcessingException {
-        return dynamoDbRepository.get(id);
+    public ChatRoom get(UUID id) {
+        ChatRoom roomFound = dynamoDbRepository.get(id);
+        if(roomFound == null) {
+            throw new RoomNotFoundException("Room not found");
+        }
+        return roomFound;
     }
 
     private ChatRoom chatBuilder(CreateChatRoomDto createChatRoomDto) {
-        if (createChatRoomDto.status == Status.PRIVATE) {
-            return new ChatRoom(createChatRoomDto.name, createChatRoomDto.status, createChatRoomDto.password);
+        if (createChatRoomDto.password == null) {
+            return new ChatRoom(createChatRoomDto.name);
         }
-        return new ChatRoom(createChatRoomDto.name);
+        return new ChatRoom(createChatRoomDto.name, createChatRoomDto.password);
     }
 
 }

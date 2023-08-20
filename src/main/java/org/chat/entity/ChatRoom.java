@@ -8,20 +8,48 @@ import java.util.UUID;
 public class ChatRoom {
     public final UUID id = UUID.randomUUID();
 
-    public String name;
+    private String name;
 
-    public Status status;
+    private Status status;
 
-    public Password password;
+    private Password password;
 
-    public ChatRoom(String name, Status status, String pwd){
+    public ChatRoom(String name, String pwd){
         this.name = name;
-        this.status = status;
+        this.status = Status.PRIVATE;
         this.password = new Password(pwd);
     }
 
     public ChatRoom(String name){
         this.name = name;
         this.status = Status.PUBLIC;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public void setPassword(String newPassword) {
+        this.password = new Password(newPassword);
+    }
+
+    public Boolean doesPasswordMatch(String valueToMatch) {
+        return this.password.match(valueToMatch);
     }
 }
