@@ -18,6 +18,11 @@ public class MongoRepository implements ChatRoomRepositoryI{
     }
 
     @Override
+    public void update(ChatRoom roomToUpdate) {
+
+    }
+
+    @Override
     public void delete(UUID id) {
 
     }

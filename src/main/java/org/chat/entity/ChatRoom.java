@@ -1,6 +1,7 @@
 package org.chat.entity;
 
 import org.chat.enums.Status;
+import org.chat.valueObjects.Name;
 import org.chat.valueObjects.Password;
 
 import java.util.UUID;
@@ -8,21 +9,21 @@ import java.util.UUID;
 public class ChatRoom {
     public final UUID id = UUID.randomUUID();
 
-    private String name;
+    private Name name;
 
     private Status status;
 
     private Password password;
 
     public ChatRoom(String name, String pwd){
-        this.name = name;
-        this.status = Status.PRIVATE;
-        this.password = new Password(pwd);
+        setName(name);
+        setStatus(Status.PRIVATE);
+        setPassword(pwd);
     }
 
     public ChatRoom(String name){
-        this.name = name;
-        this.status = Status.PUBLIC;
+        setName(name);
+        setStatus(Status.PUBLIC);
     }
 
     public UUID getId() {
@@ -30,11 +31,11 @@ public class ChatRoom {
     }
 
     public String getName() {
-        return name;
+        return name.getName();
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = new Name(name);
     }
 
     public Status getStatus() {

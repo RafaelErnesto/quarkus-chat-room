@@ -28,6 +28,11 @@ public class RedisRepository implements  ChatRoomRepositoryI{
     }
 
     @Override
+    public void update(ChatRoom roomToUpdate) {
+
+    }
+
+    @Override
     public void delete(UUID id) {
         ValueCommands<String, ChatRoom> commands = redisDataSource.value(ChatRoom.class);
         commands.getdel(id.toString());
