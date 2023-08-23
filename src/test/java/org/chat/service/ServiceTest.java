@@ -5,8 +5,10 @@ import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.ProcessingException;
 import org.chat.dto.CreateChatRoomDto;
+import org.chat.dto.UpdateNameDto;
 import org.chat.entity.ChatRoom;
 import org.chat.enums.Status;
+import org.chat.exception.InvalidChatNameException;
 import org.chat.exception.RoomNotFoundException;
 import org.chat.repository.MongoRepository;
 import org.junit.jupiter.api.Assertions;
@@ -57,5 +59,35 @@ public class ServiceTest {
     public void Given_a_call_to_create_a_room_When_it_creates_Then_returns_the_room_id() {
         UUID id = sut.create(new CreateChatRoomDto("Test"));
         Assertions.assertNotNull(id);
+    }
+
+    @Test
+    public void Given_a_call_to_update_a_room_name_When_the_room_is_not_found_Then_throws() {
+        Assertions.assertThrows(RoomNotFoundException.class, () -> sut.updateChatName(UUID.randomUUID(), new UpdateNameDto("test")));
+    }
+
+    @Test
+    public void Given_a_call_to_update_a_room_name_When_the_name_is_invalid_Then_throws() {
+        Mockito.when(repository.get(any())).thenReturn(new ChatRoom("TEST"));
+        Assertions.assertThrows(InvalidChatNameException.class, () -> sut.updateChatName(any(), new UpdateNameDto("test@")));
+    }
+
+    @Test
+    public void Given_a_call_to_update_a_room_name_When_the_name_is_valid_Then_returns_id() {
+        ChatRoom roomToUpdate = new ChatRoom("TEST");
+        Mockito.when(repository.get(any())).thenReturn(roomToUpdate);
+        UUID id = sut.updateChatName(any(), new UpdateNameDto("test"));
+        Assertions.assertEquals(roomToUpdate.id, id);
+    }
+
+    @Test
+    public void Given_a_call_to_delete_a_room_When_the_room_is_not_found_Then_throws() {
+        Assertions.assertThrows(RoomNotFoundException.class, () -> sut.delete(any()));
+    }
+
+    @Test
+    public void Given_a_call_to_delete_a_room_When_the_room_found_Then_deletes() {
+        Mockito.when(repository.get(any())).thenReturn(new ChatRoom("TEST"));
+        sut.delete(any());
     }
 }

@@ -9,6 +9,9 @@ public class Password {
     private String value;
 
     public Password(String password) {
+        if(password == null || password.length() < 8) {
+            throw new ProcessingException("Invalid password, it must have at least length 8");
+        }
         this.value = hashPassword(password);
     }
 

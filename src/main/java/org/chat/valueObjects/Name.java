@@ -23,7 +23,8 @@ public class Name {
         boolean matchFound = matcher.find();
         if (value.length() > 3 && !matchFound) {
             this.value = value;
+        } else {
+            throw new InvalidChatNameException("Name must be bigger than 3 characters and have only letters and numbers");
         }
-        throw new InvalidChatNameException("Name must be bigger than 3 characters and have only letters and numbers");
     }
 }
