@@ -20,11 +20,7 @@ public class Service {
     ChatRoomBuilder builder = new ChatRoomBuilder();
 
     public ChatRoom get(UUID id) {
-        ChatRoom roomFound = repository.get(id);
-        if (roomFound == null) {
-            throw new RoomNotFoundException("Room not found");
-        }
-        return roomFound;
+        return findChatRoom(id);
     }
 
     public UUID create(CreateChatRoomDto createChatRoomDto) {
@@ -37,21 +33,23 @@ public class Service {
     }
 
     public UUID updateChatName(UUID id, UpdateNameDto updateNameDto) {
-        ChatRoom roomToUpdate = repository.get(id);
-        if (roomToUpdate == null) {
-            throw new RoomNotFoundException("Room not found");
-        }
+        ChatRoom roomToUpdate = findChatRoom(id);
         roomToUpdate.setName(updateNameDto.getName());
         repository.update(roomToUpdate);
         return roomToUpdate.id;
     }
 
     public void delete(UUID id) {
-        ChatRoom roomToUpdate = repository.get(id);
-        if (roomToUpdate == null) {
+        findChatRoom(id);
+        repository.delete(id);
+    }
+
+    private ChatRoom findChatRoom(UUID id) {
+        ChatRoom chatRoom = repository.get(id);
+        if (chatRoom == null) {
             throw new RoomNotFoundException("Room not found");
         }
-        repository.delete(id);
+        return chatRoom;
     }
 
 }
