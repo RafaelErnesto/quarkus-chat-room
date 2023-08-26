@@ -5,9 +5,11 @@ import jakarta.inject.Inject;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import org.chat.dto.CreateChatRoomDto;
 import org.chat.dto.UpdateNameDto;
 import org.chat.entity.ChatRoom;
+import org.chat.resource.response.mapper.CreateRoomResponseMapper;
 import org.chat.service.Service;
 
 import java.util.UUID;
@@ -20,7 +22,7 @@ public class Resource {
     Service service;
 
     @GET
-    @Path("/{id}")
+    @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public ChatRoom getRoom(@Valid @PathParam("id") UUID id) {
         return service.get(id);
@@ -28,14 +30,14 @@ public class Resource {
 
     @POST()
     @Consumes(MediaType.APPLICATION_JSON)
-    public UUID createRoom(@Valid CreateChatRoomDto createChatRoomDto) {
-        return service.create(createChatRoomDto);
+    public Response createRoom(@Valid CreateChatRoomDto createChatRoomDto) {
+        UUID id = service.create(createChatRoomDto);
+        return CreateRoomResponseMapper.toResponse(id);
     }
 
     @PATCH
     @Path("/{id}/update-name")
-    @Produces(MediaType.APPLICATION_JSON)
-    public void updateRoom(@Valid @PathParam("id") UUID id, UpdateNameDto body) {
+    public void updateRoom(@Valid @PathParam("id") UUID id, @Valid  UpdateNameDto body) {
         service.updateChatName(id, body);
     }
 
@@ -45,6 +47,5 @@ public class Resource {
     public void deleteRoom(@Valid @PathParam("id") UUID id) {
         service.delete(id);
     }
-
 
 }
