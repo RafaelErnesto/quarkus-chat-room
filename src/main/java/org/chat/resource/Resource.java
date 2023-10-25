@@ -8,7 +8,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.chat.dto.CreateChatRoomDto;
 import org.chat.dto.UpdateNameDto;
-import org.chat.entity.ChatRoom;
+import org.chat.domain.entity.ChatRoom;
 import org.chat.resource.response.mapper.CreateRoomResponseMapper;
 import org.chat.service.Service;
 

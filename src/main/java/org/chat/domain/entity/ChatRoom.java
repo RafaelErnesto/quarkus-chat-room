@@ -1,8 +1,8 @@
-package org.chat.entity;
+package org.chat.domain.entity;
 
 import org.chat.enums.Status;
-import org.chat.valueObjects.Name;
-import org.chat.valueObjects.Password;
+import org.chat.domain.valueObjects.Name;
+import org.chat.domain.valueObjects.Password;
 
 import java.util.UUID;
 

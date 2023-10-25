@@ -1,6 +1,6 @@
 package org.chat.builder;
 
-import org.chat.entity.ChatRoom;
+import org.chat.domain.entity.ChatRoom;
 
 public class ChatRoomBuilder {
     private String name;

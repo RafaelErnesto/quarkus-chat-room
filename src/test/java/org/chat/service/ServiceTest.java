@@ -6,7 +6,7 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.ProcessingException;
 import org.chat.dto.CreateChatRoomDto;
 import org.chat.dto.UpdateNameDto;
-import org.chat.entity.ChatRoom;
+import org.chat.domain.entity.ChatRoom;
 import org.chat.enums.Status;
 import org.chat.exception.InvalidChatNameException;
 import org.chat.exception.RoomNotFoundException;

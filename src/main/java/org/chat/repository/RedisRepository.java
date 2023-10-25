@@ -4,7 +4,7 @@ import io.quarkus.redis.datasource.RedisDataSource;
 import io.quarkus.redis.datasource.value.ValueCommands;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import org.chat.entity.ChatRoom;
+import org.chat.domain.entity.ChatRoom;
 
 import java.util.UUID;
 

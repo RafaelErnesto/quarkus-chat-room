@@ -5,7 +5,7 @@ import jakarta.inject.Inject;
 import org.chat.builder.ChatRoomBuilder;
 import org.chat.dto.CreateChatRoomDto;
 import org.chat.dto.UpdateNameDto;
-import org.chat.entity.ChatRoom;
+import org.chat.domain.entity.ChatRoom;
 import org.chat.exception.RoomNotFoundException;
 import org.chat.repository.MongoRepository;
 

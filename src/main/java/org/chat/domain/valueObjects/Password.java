@@ -1,4 +1,4 @@
-package org.chat.valueObjects;
+package org.chat.domain.valueObjects;
 
 import jakarta.ws.rs.ProcessingException;
 

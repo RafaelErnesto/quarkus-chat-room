@@ -1,6 +1,6 @@
 package org.chat.repository;
 
-import org.chat.entity.ChatRoom;
+import org.chat.domain.entity.ChatRoom;
 
 import java.util.UUID;
 

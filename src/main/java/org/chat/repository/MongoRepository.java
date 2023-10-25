@@ -1,7 +1,7 @@
 package org.chat.repository;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import org.chat.entity.ChatRoom;
+import org.chat.domain.entity.ChatRoom;
 
 import java.util.UUID;
 
