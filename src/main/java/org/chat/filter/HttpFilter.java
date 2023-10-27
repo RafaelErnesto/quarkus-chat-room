@@ -13,11 +13,11 @@ public class HttpFilter implements ContainerRequestFilter, ContainerResponseFilt
 
     @Override
     public void filter(ContainerRequestContext containerRequestContext) throws IOException {
-
+        LoggingService.info("Logging request");
     }
 
     @Override
     public void filter(ContainerRequestContext containerRequestContext, ContainerResponseContext containerResponseContext) throws IOException {
-        LoggingService.info("Loggin response");
+        LoggingService.info("Logging response");
     }
 }

@@ -6,7 +6,7 @@ import org.chat.domain.entity.ChatRoom;
 import java.util.UUID;
 
 @ApplicationScoped
-public class MongoRepository implements ChatRoomRepositoryI{
+public class MongoRepository implements ChatRoomRepositoryI {
     @Override
     public void save(ChatRoom chatRoom) {
 
