@@ -1,4 +1,4 @@
-package org.chat.resource;
+package org.chat.application.resource;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -6,11 +6,11 @@ import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.chat.dto.CreateChatRoomDto;
-import org.chat.dto.UpdateNameDto;
+import org.chat.application.resource.response.mapper.CreateRoomResponseMapper;
+import org.chat.application.dto.CreateChatRoomDto;
+import org.chat.application.dto.UpdateNameDto;
 import org.chat.domain.entity.ChatRoom;
-import org.chat.resource.response.mapper.CreateRoomResponseMapper;
-import org.chat.service.Service;
+import org.chat.domain.service.Service;
 
 import java.util.UUID;
 

@@ -1,4 +1,4 @@
-package org.chat.resource.dto;
+package org.chat.application.dto;
 
 public class CreateRoomResponseDto {
 

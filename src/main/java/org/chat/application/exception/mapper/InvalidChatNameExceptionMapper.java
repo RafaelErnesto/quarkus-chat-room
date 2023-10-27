@@ -1,10 +1,10 @@
-package org.chat.exception.mapper;
+package org.chat.application.exception.mapper;
 
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
-import org.chat.exception.ErrorResponseDto;
-import org.chat.exception.InvalidChatNameException;
+import org.chat.application.exception.ErrorResponseDto;
+import org.chat.application.exception.InvalidChatNameException;
 
 @Provider
 public class InvalidChatNameExceptionMapper implements ExceptionMapper<InvalidChatNameException> {

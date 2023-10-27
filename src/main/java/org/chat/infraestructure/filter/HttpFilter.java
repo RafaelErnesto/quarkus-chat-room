@@ -1,11 +1,11 @@
-package org.chat.filter;
+package org.chat.infraestructure.filter;
 
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerRequestFilter;
 import jakarta.ws.rs.container.ContainerResponseContext;
 import jakarta.ws.rs.container.ContainerResponseFilter;
 import jakarta.ws.rs.ext.Provider;
-import org.chat.logging.LoggingService;
+import org.chat.infraestructure.logging.LoggingService;
 
 import java.io.IOException;
 @Provider

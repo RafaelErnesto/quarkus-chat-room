@@ -1,6 +1,7 @@
-package org.chat.repository;
+package org.chat.infraestructure.repository;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import org.chat.domain.ChatRoomRepositoryI;
 import org.chat.domain.entity.ChatRoom;
 
 import java.util.UUID;

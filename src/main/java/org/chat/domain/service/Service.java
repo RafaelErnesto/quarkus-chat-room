@@ -1,13 +1,13 @@
-package org.chat.service;
+package org.chat.domain.service;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import org.chat.builder.ChatRoomBuilder;
-import org.chat.dto.CreateChatRoomDto;
-import org.chat.dto.UpdateNameDto;
+import org.chat.domain.ChatRoomRepositoryI;
+import org.chat.domain.builder.ChatRoomBuilder;
+import org.chat.application.dto.CreateChatRoomDto;
+import org.chat.application.dto.UpdateNameDto;
 import org.chat.domain.entity.ChatRoom;
-import org.chat.exception.RoomNotFoundException;
-import org.chat.repository.MongoRepository;
+import org.chat.application.exception.RoomNotFoundException;
 
 import java.util.UUID;
 
@@ -15,7 +15,7 @@ import java.util.UUID;
 public class Service {
 
     @Inject
-    MongoRepository repository;
+    ChatRoomRepositoryI repository;
 
     ChatRoomBuilder builder = new ChatRoomBuilder();
 

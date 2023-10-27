@@ -1,4 +1,4 @@
-package org.chat.logging;
+package org.chat.infraestructure.logging;
 
 import io.quarkus.logging.Log;
 

@@ -1,10 +1,10 @@
-package org.chat.dto;
+package org.chat.application.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import org.chat.enums.Status;
+import org.chat.domain.enums.Status;
 
 public class CreateChatRoomDto {
     

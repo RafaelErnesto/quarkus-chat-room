@@ -1,6 +1,6 @@
 package org.chat.domain.entity;
 
-import org.chat.enums.Status;
+import org.chat.domain.enums.Status;
 import org.chat.domain.valueObjects.Name;
 import org.chat.domain.valueObjects.Password;
 

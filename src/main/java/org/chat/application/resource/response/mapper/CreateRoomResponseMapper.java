@@ -1,7 +1,7 @@
-package org.chat.resource.response.mapper;
+package org.chat.application.resource.response.mapper;
 
 import jakarta.ws.rs.core.Response;
-import org.chat.resource.dto.CreateRoomResponseDto;
+import org.chat.application.dto.CreateRoomResponseDto;
 
 import java.util.UUID;
 

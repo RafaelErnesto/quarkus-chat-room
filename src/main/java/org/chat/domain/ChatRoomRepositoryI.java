@@ -1,4 +1,4 @@
-package org.chat.repository;
+package org.chat.domain;
 
 import org.chat.domain.entity.ChatRoom;
 

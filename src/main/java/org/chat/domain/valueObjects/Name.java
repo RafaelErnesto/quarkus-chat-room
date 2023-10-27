@@ -1,6 +1,6 @@
 package org.chat.domain.valueObjects;
 
-import org.chat.exception.InvalidChatNameException;
+import org.chat.application.exception.InvalidChatNameException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

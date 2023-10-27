@@ -4,12 +4,13 @@ import io.quarkus.test.InjectMock;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.Header;
-import org.chat.dto.CreateChatRoomDto;
-import org.chat.dto.UpdateNameDto;
+import org.chat.application.resource.Resource;
+import org.chat.application.dto.CreateChatRoomDto;
+import org.chat.application.dto.UpdateNameDto;
 import org.chat.domain.entity.ChatRoom;
-import org.chat.exception.InvalidChatNameException;
-import org.chat.exception.RoomNotFoundException;
-import org.chat.service.Service;
+import org.chat.application.exception.InvalidChatNameException;
+import org.chat.application.exception.RoomNotFoundException;
+import org.chat.domain.service.Service;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 

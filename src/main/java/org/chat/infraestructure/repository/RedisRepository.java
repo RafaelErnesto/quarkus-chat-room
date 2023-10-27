@@ -1,15 +1,16 @@
-package org.chat.repository;
+package org.chat.infraestructure.repository;
 
 import io.quarkus.redis.datasource.RedisDataSource;
 import io.quarkus.redis.datasource.value.ValueCommands;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import org.chat.domain.ChatRoomRepositoryI;
 import org.chat.domain.entity.ChatRoom;
 
 import java.util.UUID;
 
 @ApplicationScoped
-public class RedisRepository implements  ChatRoomRepositoryI {
+public class RedisRepository implements ChatRoomRepositoryI {
 
     @Inject
     RedisDataSource redisDataSource;

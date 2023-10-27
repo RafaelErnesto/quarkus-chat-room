@@ -1,4 +1,4 @@
-package org.chat.exception;
+package org.chat.application.exception;
 
 import jakarta.ws.rs.ProcessingException;
 
